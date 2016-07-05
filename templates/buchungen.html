@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block titel %}Buchungs-&Uuml;bersicht{% endblock %}
+{% block inhalt %}
+    {% for m in buchung %}
+        <div class="kontainer">
+          <div class="titelzeile">
+            <div class="titel">{{ m.nutzer|escape }}</div>
+            <div style="clear: both"></div>
+          </div>
+          <div class="text">
+            {{ m.anzahl_tage|escape|linebreaksbr }}  Tage Aufenthalt
+          </div>
+          <div class="text">
+           Zimmer gebucht vom {{ m.datum_von|date:'d.m.Y' }} bis {{m.datum_bis|date:'d.m.Y'|escape|linebreaksbr }}
+		   <div class="link_unten">
+			<a href={% url 'admin:index' %}hotel/buchung/{{m.id}}/delete><img src="{% static "images/delete.png" %}" height="24" width="24" alt="Zimmer buchen"/></a>
+          </div>
+
+
+
+        </div>
+    {% endfor %}
+{% endblock %}
+

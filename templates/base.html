@@ -1,0 +1,44 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% load material_form %} 
+{% include '/usr/local/lib/python3.5/dist-packages/material/templates/material/includes/material_css.html' %}
+{% include 'material/includes/material_js.html' %}
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Unsere Django-Seite</title>
+
+   <link rel="stylesheet" type="text/css" href="{% static "css/lightbox.css" %}">
+   <script src="{% static "js/lightbox-plus-jquery.min.js" %}"></script>
+<script src="/usr/local/lib/python3.5/dist-packages/material/static/material/js/jquery-2.2.0.js"></script>
+   <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
+</script>
+
+</head>
+<body>
+<ul>
+  <li> <img src="{% static "images/logo.png" %}" height="50" width="60" alt="Zimmer buchen"/>
+
+  <li><a href="{% url 'startseite' %}">Home</a></li>
+  <li><a href="{% url 'zimmer' %}">Zimmer&uuml;bersicht</a></li>
+  <li><a href="{% url 'buchungen' %}">Buchungs&uuml;bersicht</a></li>
+  <li><a href="{% url 'admin:index' %}">Admin-Bereich</a></li>
+  <li><a href="{% url 'impressum' %}">Projektteam</a></li>
+  
+</ul>
+  <div id="inhalt">
+    <h2>{% block titel %}Hotelzimmerverwaltungs-&Uuml;bersicht {% endblock %}</h2>
+
+    {% block inhalt %}
+    {% endblock %}
+  </div>
+</body>
+</html>
+
