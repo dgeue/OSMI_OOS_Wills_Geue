@@ -1,0 +1,1 @@
++++ In der settings.py die Datenbank Anbindung anpassen +++
